@@ -4,15 +4,22 @@ going to find whether or not there is a pair of numbers in the array given, that
 [3, 5, -4, 8, 11, 1, -1, 6]  target sum  = 10"""
 
 def pair_sum_is_n(arr, n):
-    """Return True if 2 numbers from `arr` add up to n, False otherwise.
-
-    Runtime:  O(N) -- linear runtime
+    """Check if there are any two elements in array "arr" that sums up to a given target "n".
+    
+    Args:
+        arr (list): a list of integers or floats..
+        n (int): the desired target sum.
+    
+    Returns:
+        2-element list if the two numbers exist, otherwise empty list.
+    Run time:
+        linear time: O(N)
     """
     arr = set(arr)
     for i in arr: # i is one part of the pair
         if n - i in arr: # n-i is the second part of the pair; checking if it exists
-            return True
-    return False
+            return [i, n-i]
+    return []
 
 #print(pair_sum_is_n([3, 5, -4, 8, 11, 1, -1], 17))
 
@@ -25,9 +32,18 @@ will find all the possible triplets in the array, that sum up to the target sum
 """
 def triplet_sum_is_n(arr, n): 
     """
-    Return a triplet from array 'arr' whose sum is n
-    Runtime:
-        O(N^2)"""
+    find all the possible triplets in the array "arr", that sum up
+     to a given target sum "n".
+    
+    Args:
+        arr (list): an array of integers.
+        target (int): an array of integers.
+    
+    Returns:
+        a list of tuples with triplets that add to target.
+    Run time:
+        quadratic time : O(N^2) 
+    """
     for i in range(0, len(arr)): 
         # Find pair in subarray arr[i + 1..n-1]  
         # with sum equal to sum - arr[i] 
@@ -51,8 +67,20 @@ and another number comes from the second array with the smallest difference.
 Array A = [-1, 5, 10, 20, 28, 3]
 Array B = [26, 134, 135, 15, 17]"""
 
-
 def smallest_difference_pair(arr1, arr2): 
+    """
+    find the pair of numbers where one number comes from the first array,
+     and another number comes from the second array with the smallest difference.
+    
+    Args:
+        arr1 (array): array of integer values.
+        arr2 (array): array of integer values.
+    
+    Returns:
+        tuple: pair of ints with the smallest  difference.
+    Run time:
+            linear time: O(N)  
+    """
     # sorting the arrays 
     arr1.sort() 
     arr2.sort() 
@@ -88,8 +116,19 @@ will find all the possible quadruplets in the array, that sum up to the target n
 
 def quadruplets_sum_to_target(arr, n): 
     """
-    O(N^3)
-    """  
+    find all the possible quadruplets in the array "arr",
+     that sum up to the target number "n".
+   
+    Args:
+        arr (list): an array of integers. 
+        n (int): target sum.
+    
+    Returns:
+        True after printing a list of quadruplets.
+
+    Run time:
+        cubic time = O(N^3)
+    """ 
     # Fix the first element and find  
     # other three 
     for i in range(0,len(arr)-3): 
